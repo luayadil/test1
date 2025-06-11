@@ -1,0 +1,4 @@
+{
+    "html_content": "<html>\n    <body>\n        <h1>Main Title</h1>\n        <p>This is the first paragraph under the main title.</p>\n        <h2>Subsection</h2>\n        <p>This is a paragraph in the subsection.</p>\n        <p>This is another paragraph in the same subsection.</p>\n        <h3>Sub-subsection</h3>\n        <p>This is a paragraph in a deeper subsection.</p>\n    </body>\n</html>\n",
+    "extracted_content": "\n"
+}
