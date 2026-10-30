@@ -34,6 +34,7 @@ import hashlib
 import json
 import re
 import subprocess
+import os
 import sys
 import tempfile
 from pathlib import Path
@@ -48,7 +49,8 @@ PROBE_TEXT = "1, 2, 3."   # checks the voice after a beat fails; any voice reads
 async def synth(text, voice, rate, mp3_path, pitch="+0Hz"):
     import edge_tts
     words = []  # (seconds, word)
-    comm = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch, boundary="WordBoundary")
+    comm = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch, boundary="WordBoundary",
+                              proxy=os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy"))
     with open(mp3_path, "wb") as f:
         async for chunk in comm.stream():
             if chunk["type"] == "audio":
